@@ -10,12 +10,13 @@
     
     import { onMount } from "svelte";
     const API = "https://rickandmortyapi.com/api/character";
+    const API2 = "https://jsonplaceholder.typicode.com/photos"
     let data = [];
     let characters:any[] = [];
     onMount(async () => {
-      const res = await fetch(API);
+      const res = await fetch(API2);
       data = await res.json();
-      characters = data.results;
+      characters = data.slice(0, 3);
       console.log( characters[9] )
     });
   </script>
@@ -37,11 +38,11 @@
   <div class="characters">
     {#each characters as character}
       <figure  transition:blur="{{amount: 10}}">
-        <img src={character.image} alt={character.name}
+        <img src={character.url} alt={character.title}
         
         transition:scale="{{duration: 5000, delay: 500, opacity: 0.1, start: 0.0, easing: quintOut}}"
          />
-        <figcaption>{character.name}- {character.status}</figcaption>
+        <figcaption>{character.name} - {character.status}</figcaption>
       </figure>
     {:else}
       <p>loading...</p>
