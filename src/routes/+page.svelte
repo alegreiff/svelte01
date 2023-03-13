@@ -16,7 +16,7 @@
     onMount(async () => {
       const res = await fetch(API2);
       data = await res.json();
-      characters = data.slice(0, 3);
+      characters = data.slice(0, 22);
       console.log( characters[9] )
     });
   </script>
@@ -42,7 +42,7 @@
         
         transition:scale="{{duration: 5000, delay: 500, opacity: 0.1, start: 0.0, easing: quintOut}}"
          />
-        <figcaption>{character.name} - {character.status}</figcaption>
+        <figcaption>{character.title} - {character.id}</figcaption>
       </figure>
     {:else}
       <p>loading...</p>
