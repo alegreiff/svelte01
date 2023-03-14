@@ -11,8 +11,8 @@ onMount(async () => {
 		const res = await fetch(API);
 		data = await res.json();
         let temp = data.datos;
-		//peliculas = temp.slice(0, 100);
-        peliculas = temp;
+		peliculas = temp.slice(0, 14);
+        //peliculas = temp;
 		console.log(peliculas[9]);
 	});
 </script>
@@ -23,6 +23,7 @@ onMount(async () => {
     {#each peliculas as peli }
         <div>
             <h1>{ peli.titulo }</h1>
+            <button> { peli.pais } </button>
         </div>
     {:else}
         <p>Cargando</p>
@@ -35,6 +36,14 @@ onMount(async () => {
 		grid-template-columns: repeat(6, 1fr);
 		grid-gap: 8px;
 	}
+    .peliculas div {
+        border: 1px crimson solid;
+        padding: 1rem;
+        font-size: 14px;
+        font-weight: bolder;
+
+
+    }
 	
 	
 </style>

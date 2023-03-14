@@ -23,11 +23,12 @@
     <nav>
         <ul>
             <li>
-                <a href="/segundo">Segunda página</a>
+                <a href="/">Inicio</a>
             </li>
             <li>
-                <a href="/tercero">Tercera página</a>
+                <a href="/segundo">Películas</a>
             </li>
+            
         </ul>
     </nav>
 </section>
